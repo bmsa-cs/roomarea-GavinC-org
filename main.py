@@ -29,12 +29,13 @@ def right_triangle_area(base, height):
   Given the base and height of a right triangle, returns the area.
 
   Parameters:
+  base, height (float) - the base and height of the triangle
 
   Returns:
-
+  float: the product of the base and height divided by two
   """
-
-  return 0
+  area = base * height * 0.5
+  return area
 
 
 def rectangle_area(length, width):
@@ -42,12 +43,11 @@ def rectangle_area(length, width):
   Given the length and width of a rectangle, returns the area.
 
   Parameters:
-
+  length, height (int) - the length and width of the rectangle
   Returns:
-
+  int: the product of the length and width
   """
-
-  return 0
+  return float(length * width)
 
 
 def room_area(a, b, c, d, e):
@@ -55,22 +55,25 @@ def room_area(a, b, c, d, e):
   Given five measurements, this function calculates and returns the area of the room.
 
   Parameters:
+  a, b, c, d, e (int): the variables used to calculate the area
 
   Returns:
-
+  float: the sum of the area of each shape
   """
-
-  return 0
+  rectangle1 = rectangle_area(d-e, a-c)
+  rectangle2 = rectangle_area(b, c)
+  triangle = right_triangle_area(e, a-c)
+  return float(rectangle1 + rectangle2 + triangle)
 
 
 if __name__ == "__main__":
   os.system("clear") # clears the console each time you run
-  
-  a = input("A: ")
-  b = input("B: ")
-  c = input("C: ")
-  d = input("D: ")
-  e = input("E: ")
+
+  a = float(input("A: "))
+  b = float(input("B: "))
+  c = float(input("C: "))
+  d = float(input("D: "))
+  e = float(input("E: "))
 
   final_area = room_area(a, b, c, d, e)
   print("Room area: " + str(final_area))
